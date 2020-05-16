@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Digite as informações abaixo</ion-card-subtitle>
+      </ion-card-header>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-button (click)="login()" expand="block">Entrar</ion-button>
+    </ion-card>
+    <ion-card>
+      <ion-button (click)="redirectToRegister()" expand="block" color="medium">Ainda não tenho cadastro</ion-button>
+    </ion-card>
+  </div>
+</ion-content>
