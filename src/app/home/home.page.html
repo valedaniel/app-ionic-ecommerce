@@ -1,3 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
   <div id="container">
     <ion-card>
@@ -14,7 +20,7 @@
       </ion-item>
     </ion-card>
     <ion-card>
-      <ion-button (click)="login()" expand="block">Entrar</ion-button>
+      <ion-button color="primary" (click)="login()" expand="block">Entrar</ion-button>
     </ion-card>
     <ion-card>
       <ion-button (click)="redirectToRegister()" expand="block" color="medium">Ainda não tenho cadastro</ion-button>
