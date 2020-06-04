@@ -3,7 +3,6 @@ import { User } from 'src/domain/model/user';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-
 @Injectable({ providedIn: 'root' })
 export default class UserService {
 

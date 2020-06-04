@@ -4,11 +4,13 @@ export default class API {
 
     public static readonly BASE_URL = 'http://example-ecommerce.herokuapp.com';
 
-    public static getHeaders() {
-        const headers = new HttpHeaders();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Accept', 'application/json');
-        return headers;
+    public static getHeaders(): HttpHeaders {
+        return new HttpHeaders({
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE",
+            "Access-Control-Allow-Headers": "origin, x-requested-with",
+        });
     }
 
 }

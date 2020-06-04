@@ -1,1 +1,0 @@
-# app-ionic-ecommerce

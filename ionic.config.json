@@ -1,7 +1,8 @@
 {
-  "name": "ecommerce",
+  "name": "app-ionic-ecommerce",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

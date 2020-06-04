@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "ecommerce",
+  "appName": "app-ionic-ecommerce",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
