@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Produtos disponíveis</ion-title>
+  <ion-toolbar class="dark">
+    <ion-title class="white">Produtos disponíveis</ion-title>
     <ion-buttons slot="end">
       <ion-icon style="zoom:1.5;" (click)="logout()" name="exit-outline"></ion-icon>
     </ion-buttons>
@@ -10,13 +10,17 @@
 <ion-content>
   <ion-list>
     <ion-item-sliding *ngFor="let product of products">
-      <ion-item>
-        <ion-label>{{product.name}}</ion-label>
-        <ion-label>{{product.price}}</ion-label>
-      </ion-item>
+      <ion-label>
+        <ion-col class="textCenter">
+          <h2>{{product.factory.name}}</h2>
+          <h3>{{product.name}}</h3>
+          <p>R$ {{product.price}}</p>
+          <p>Quantidade: {{product.amount}}</p>
+        </ion-col>
+      </ion-label>
       <ion-item-options side="end">
         <ion-item-option expandeble>
-          VISUALIZAR
+          ADICIONAR
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>

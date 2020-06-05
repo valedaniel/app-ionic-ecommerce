@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from 'src/domain/model/user';
 import UserService from 'src/services/userService';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import StorageRepository from '../repositories/storage';
 import { Router } from '@angular/router';
 
@@ -13,12 +13,16 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   private user = new User();
+  private loading = this.loadingController.create({
+    message: 'Aguarde...',
+  });
 
   constructor(
     private userService: UserService,
     private alertController: AlertController,
     private storageRepository: StorageRepository,
-    private router: Router) {
+    private router: Router,
+    public loadingController: LoadingController) {
 
     this.checkToken();
   }
@@ -26,18 +30,29 @@ export class HomePage {
   private login(): void {
     try {
       if (this.validateUser())
-        this.userService.authenticate(this.user, (data: any) => {
-          if (data.status === 401) {
-            this.presentAlert('Email ou senha estão incorretos')
-          } else {
-            this.storageRepository.set('token', data, () => {
-              this.redirectToListProducts();
-            });
-          }
-        });
+        this.startLoading();
+      this.userService.authenticate(this.user, async (data: any) => {
+        if (data.status === 401) {
+          await this.stopLoading();
+          this.presentAlert('Email ou senha estão incorretos');
+        } else {
+          this.storageRepository.set('token', data, async () => {
+            await this.stopLoading();
+            this.redirectToListProducts();
+          });
+        }
+      });
     } catch (err) {
       console.log(err);
     }
+  }
+
+  async startLoading() {
+    await (await this.loading).present();
+  }
+
+  async stopLoading() {
+    await (await this.loading).dismiss();
   }
 
   private validateUser(): boolean {

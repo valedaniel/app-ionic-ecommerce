@@ -1,45 +1,45 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Cadastre-se</ion-title>
+  <ion-toolbar class="dark">
+    <ion-title class="white">Cadastre-se</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+
+<ion-content class="blue" [fullscreen]="true">
   <div id="container">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Digite as informações abaixo</ion-card-subtitle>
-      </ion-card-header>
-      <ion-item>
-        <ion-label position="floating">Nome</ion-label>
-        <ion-input [(ngModel)]="user.name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Idade</ion-label>
-        <ion-input type="numeric" [(ngModel)]="user.age"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input [(ngModel)]="user.email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Endereço</ion-label>
-        <ion-input [(ngModel)]="user.address"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Senha</ion-label>
-        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Confirmar senha</ion-label>
-        <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
-      </ion-item>
-    </ion-card>
-    <ion-card>
-      <ion-button (click)="register()" expand="block">Cadastrar</ion-button>
-    </ion-card>
-    <ion-card>
-      <ion-button (click)="redirectToLogin()" expand="block" color="medium">Já sou cadastrado</ion-button>
-    </ion-card>
+    <ion-item>
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      <ion-input placeholder="Insira o seu nome" [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="body-outline"></ion-icon>
+      <ion-input placeholder="Insira a sua idade" type="number" [(ngModel)]="user.age"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-input placeholder="Insira o seu email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="map-outline"></ion-icon>
+      <ion-input placeholder="Insira o seu endereço" [(ngModel)]="user.address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="key-outline"></ion-icon>
+      <ion-input placeholder="Insira a sua senha" type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="key-outline"></ion-icon>
+      <ion-input placeholder="Confirme a sua senha" type="password" [(ngModel)]="confirmPassword"></ion-input>
+    </ion-item>
+    <ion-grid>
+      <ion-button class="buttonSubmit" shape="round" expand="block" (click)="register()">
+        Cadastrar
+      </ion-button>
+    </ion-grid>
+    <ion-grid>
+      <ion-button class="buttonSecondary" shape="round" expand="block" fill="outline" (click)="redirectToLogin()">Já sou
+        cadastrado
+      </ion-button>
+    </ion-grid>
   </div>
 </ion-content>
