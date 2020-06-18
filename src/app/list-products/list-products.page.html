@@ -7,22 +7,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
   <ion-list>
-    <ion-item-sliding *ngFor="let product of products">
+    <ion-item *ngFor="let product of products">
+      <ion-icon class="bigIcon" name="phone-portrait-outline"></ion-icon>
       <ion-label>
-        <ion-col class="textCenter">
-          <h2>{{product.factory.name}}</h2>
-          <h3>{{product.name}}</h3>
-          <p>R$ {{product.price}}</p>
-          <p>Quantidade: {{product.amount}}</p>
-        </ion-col>
+        <h2>{{product.factory.name}}</h2>
+        <h3>{{product.name}}</h3>
+        <p>R$ {{product.price}}</p>
+        <p>Quantidade: {{product.amount}}</p>
       </ion-label>
-      <ion-item-options side="end">
-        <ion-item-option expandeble>
-          ADICIONAR
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
+      <ion-note slot="end"><ion-icon class="middleIcon" name="cart-outline"></ion-icon></ion-note>
+    </ion-item>
   </ion-list>
 </ion-content>
